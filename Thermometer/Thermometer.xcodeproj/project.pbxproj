@@ -20,6 +20,8 @@
 		242E04541E88EF5400469527 /* Tabbar_chart.png in Resources */ = {isa = PBXBuildFile; fileRef = 242E04501E88EF5400469527 /* Tabbar_chart.png */; };
 		242E04551E88EF5400469527 /* Tabbar_home.png in Resources */ = {isa = PBXBuildFile; fileRef = 242E04511E88EF5400469527 /* Tabbar_home.png */; };
 		242E04561E88EF5400469527 /* Tabbar_me.png in Resources */ = {isa = PBXBuildFile; fileRef = 242E04521E88EF5400469527 /* Tabbar_me.png */; };
+		242F76321E8E0B1D0006FA5B /* TEMPCameraController.m in Sources */ = {isa = PBXBuildFile; fileRef = 242F76311E8E0B1D0006FA5B /* TEMPCameraController.m */; };
+		242F76351E8E452A0006FA5B /* TEMPCameraManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 242F76341E8E452A0006FA5B /* TEMPCameraManager.m */; };
 		247078CB1E84CD0700E12562 /* bgImage1.png in Resources */ = {isa = PBXBuildFile; fileRef = 247078CA1E84CD0700E12562 /* bgImage1.png */; };
 		247078CE1E84D38900E12562 /* UIButton+Extension.m in Sources */ = {isa = PBXBuildFile; fileRef = 247078CD1E84D38900E12562 /* UIButton+Extension.m */; };
 		247078D01E84DC9200E12562 /* Button_Field_Delete1.png in Resources */ = {isa = PBXBuildFile; fileRef = 247078CF1E84DC9200E12562 /* Button_Field_Delete1.png */; };
@@ -40,7 +42,6 @@
 		247F87361E84BECF00CE047E /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 247E44501E84BA6800BE66E4 /* LaunchScreen.storyboard */; };
 		249734991E8CE61C00AEA9ED /* UIAlertController+Extension.m in Sources */ = {isa = PBXBuildFile; fileRef = 249734981E8CE61C00AEA9ED /* UIAlertController+Extension.m */; };
 		249734A31E8D033700AEA9ED /* TEMPEditImageController.m in Sources */ = {isa = PBXBuildFile; fileRef = 249734A21E8D033700AEA9ED /* TEMPEditImageController.m */; };
-		249734A61E8D0FBD00AEA9ED /* UIView+Extension.m in Sources */ = {isa = PBXBuildFile; fileRef = 249734A51E8D0FBD00AEA9ED /* UIView+Extension.m */; };
 		24B8A6541E8BB6CD0097DAFB /* TEMPPermitManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 24B8A6531E8BB6CD0097DAFB /* TEMPPermitManager.m */; };
 		24B8A6571E8BC0230097DAFB /* UIAlertAction+Extension.m in Sources */ = {isa = PBXBuildFile; fileRef = 24B8A6561E8BC0230097DAFB /* UIAlertAction+Extension.m */; };
 		B87E4DE90384BFFFA3ECB0DA /* libPods-Thermometer.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 7FF29DAC4AC50CD84ACC7145 /* libPods-Thermometer.a */; };
@@ -62,6 +63,10 @@
 		242E04501E88EF5400469527 /* Tabbar_chart.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Tabbar_chart.png; sourceTree = "<group>"; };
 		242E04511E88EF5400469527 /* Tabbar_home.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Tabbar_home.png; sourceTree = "<group>"; };
 		242E04521E88EF5400469527 /* Tabbar_me.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Tabbar_me.png; sourceTree = "<group>"; };
+		242F76301E8E0B1D0006FA5B /* TEMPCameraController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TEMPCameraController.h; sourceTree = "<group>"; };
+		242F76311E8E0B1D0006FA5B /* TEMPCameraController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TEMPCameraController.m; sourceTree = "<group>"; };
+		242F76331E8E452A0006FA5B /* TEMPCameraManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TEMPCameraManager.h; sourceTree = "<group>"; };
+		242F76341E8E452A0006FA5B /* TEMPCameraManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TEMPCameraManager.m; sourceTree = "<group>"; };
 		247078CA1E84CD0700E12562 /* bgImage1.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = bgImage1.png; sourceTree = "<group>"; };
 		247078CC1E84D38900E12562 /* UIButton+Extension.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIButton+Extension.h"; sourceTree = "<group>"; };
 		247078CD1E84D38900E12562 /* UIButton+Extension.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIButton+Extension.m"; sourceTree = "<group>"; };
@@ -97,8 +102,6 @@
 		249734981E8CE61C00AEA9ED /* UIAlertController+Extension.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIAlertController+Extension.m"; sourceTree = "<group>"; };
 		249734A11E8D033700AEA9ED /* TEMPEditImageController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TEMPEditImageController.h; sourceTree = "<group>"; };
 		249734A21E8D033700AEA9ED /* TEMPEditImageController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TEMPEditImageController.m; sourceTree = "<group>"; };
-		249734A41E8D0FBD00AEA9ED /* UIView+Extension.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIView+Extension.h"; sourceTree = "<group>"; };
-		249734A51E8D0FBD00AEA9ED /* UIView+Extension.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIView+Extension.m"; sourceTree = "<group>"; };
 		24B8A6521E8BB6CD0097DAFB /* TEMPPermitManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TEMPPermitManager.h; sourceTree = "<group>"; };
 		24B8A6531E8BB6CD0097DAFB /* TEMPPermitManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TEMPPermitManager.m; sourceTree = "<group>"; };
 		24B8A6551E8BC0230097DAFB /* UIAlertAction+Extension.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIAlertAction+Extension.h"; sourceTree = "<group>"; };
@@ -193,8 +196,6 @@
 		247F870D1E84BD6700CE047E /* Category */ = {
 			isa = PBXGroup;
 			children = (
-				249734A41E8D0FBD00AEA9ED /* UIView+Extension.h */,
-				249734A51E8D0FBD00AEA9ED /* UIView+Extension.m */,
 				247F870E1E84BD6700CE047E /* UIImage+Extension.h */,
 				247F870F1E84BD6700CE047E /* UIImage+Extension.m */,
 				247078CC1E84D38900E12562 /* UIButton+Extension.h */,
@@ -315,6 +316,8 @@
 			children = (
 				249734A11E8D033700AEA9ED /* TEMPEditImageController.h */,
 				249734A21E8D033700AEA9ED /* TEMPEditImageController.m */,
+				242F76301E8E0B1D0006FA5B /* TEMPCameraController.h */,
+				242F76311E8E0B1D0006FA5B /* TEMPCameraController.m */,
 			);
 			path = ToolController;
 			sourceTree = "<group>";
@@ -324,6 +327,8 @@
 			children = (
 				24B8A6521E8BB6CD0097DAFB /* TEMPPermitManager.h */,
 				24B8A6531E8BB6CD0097DAFB /* TEMPPermitManager.m */,
+				242F76331E8E452A0006FA5B /* TEMPCameraManager.h */,
+				242F76341E8E452A0006FA5B /* TEMPCameraManager.m */,
 			);
 			path = Tool;
 			sourceTree = "<group>";
@@ -477,12 +482,12 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				242F76351E8E452A0006FA5B /* TEMPCameraManager.m in Sources */,
 				247F872B1E84BD6700CE047E /* TEMPChartController.m in Sources */,
 				247F872F1E84BD6700CE047E /* TEMPSqlData.m in Sources */,
 				249734991E8CE61C00AEA9ED /* UIAlertController+Extension.m in Sources */,
 				247F872E1E84BD6700CE047E /* TEMPTextField.m in Sources */,
 				247F872C1E84BD6700CE047E /* TEMPLoginController.m in Sources */,
-				249734A61E8D0FBD00AEA9ED /* UIView+Extension.m in Sources */,
 				247F870C1E84BD3600CE047E /* TEMPAppDelegate.m in Sources */,
 				247078CE1E84D38900E12562 /* UIButton+Extension.m in Sources */,
 				249734A31E8D033700AEA9ED /* TEMPEditImageController.m in Sources */,
@@ -494,6 +499,7 @@
 				242E044D1E88C1DD00469527 /* TEMPTabBarController.m in Sources */,
 				247F872A1E84BD6700CE047E /* UIImage+Extension.m in Sources */,
 				247F87341E84BD6700CE047E /* TEMPChartView.m in Sources */,
+				242F76321E8E0B1D0006FA5B /* TEMPCameraController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

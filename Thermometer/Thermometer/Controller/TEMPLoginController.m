@@ -12,7 +12,7 @@
 #import <objc/runtime.h>
 #import "TEMPPermitManager.h"
 #import "TEMPEditImageController.h"
-#import "UIView+Extension.h"
+#import "TEMPCameraController.h"
 
 #define kBoxHeight 25
 #define kBoxWidth SCREEN_WIDTH * 0.8
@@ -187,14 +187,15 @@ UINavigationControllerDelegate
         }
         [TEMPPermitManager permitWithCamera:self];
         
-        self.picker = [[UIImagePickerController alloc] init];
-        self.picker.view.backgroundColor = UIBgBlackColor;
-        self.picker.sourceType = UIImagePickerControllerSourceTypeCamera;
-        self.picker.delegate = self;
-        [self.picker setAllowsEditing:YES];
-        [self.picker setShowsCameraControls:YES];
-        [self.picker setCameraOverlayView:[UIView initWithCameraOverlayView:YES]];
-        [self presentViewController:self.picker animated:YES completion:nil];
+//        self.picker = [[UIImagePickerController alloc] init];
+//        self.picker.view.backgroundColor = UIBgBlackColor;
+//        self.picker.sourceType = UIImagePickerControllerSourceTypeCamera;
+//        self.picker.delegate = self;
+//        [self.picker setShowsCameraControls:YES];
+//        [self presentViewController:self.picker animated:YES completion:nil];
+        
+        TEMPCameraController *camera = [TEMPCameraController new];
+        [self presentViewController:camera animated:YES completion:nil];
         
     } titleColor:UIFontBlackColor];
 
@@ -211,6 +212,7 @@ UINavigationControllerDelegate
         self.picker.view.backgroundColor = UIBgBlackColor;
         self.picker.sourceType = UIImagePickerControllerSourceTypePhotoLibrary;
         self.picker.delegate = self;
+        [self.picker setAllowsEditing:YES];
         [self presentViewController:self.picker animated:YES completion:nil];
     
     } titleColor:UIFontBlackColor];

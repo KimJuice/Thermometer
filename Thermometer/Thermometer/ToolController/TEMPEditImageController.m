@@ -19,12 +19,16 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
+    
+    [self setupUI];
 }
 
 - (void)setupUI {
 
     SETBACKGROUNDCOLOR(UIBgBlackColor)
     self.scrollView = [[UIScrollView alloc] initWithFrame:self.view.frame];
+    self.scrollView.backgroundColor = UIBgBlackColor;
+    [self.view addSubview:self.scrollView];
 }
 
 - (void)didReceiveMemoryWarning {
