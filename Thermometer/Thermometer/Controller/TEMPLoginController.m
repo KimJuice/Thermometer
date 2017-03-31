@@ -21,7 +21,8 @@
 <
 UITextFieldDelegate,
 UIImagePickerControllerDelegate,
-UINavigationControllerDelegate
+UINavigationControllerDelegate,
+TEMPCameraControllerDelegate
 >
 
 @property (nonatomic, strong) UIButton *iconBtn;
@@ -33,6 +34,7 @@ UINavigationControllerDelegate
 @property (nonatomic, strong) UIButton *forgotKeyBtn;
 @property (nonatomic, strong) UIButton *signUpBtn;
 @property (nonatomic, strong) UIImagePickerController *picker;
+@property (nonatomic, strong) TEMPCameraController *cameraController;
 
 @end
 
@@ -195,6 +197,7 @@ UINavigationControllerDelegate
 //        [self presentViewController:self.picker animated:YES completion:nil];
         
         TEMPCameraController *camera = [TEMPCameraController new];
+        camera.cameraDelegate = self;
         [self presentViewController:camera animated:YES completion:nil];
         
     } titleColor:UIFontBlackColor];
@@ -276,6 +279,13 @@ UINavigationControllerDelegate
     
     [picker dismissViewControllerAnimated:YES completion:nil];
      */
+}
+
+#pragma mark - TEMPCameraControllerDelegate
+
+- (void)findPhotographWithImage:(UIImage *)image {
+
+    [self.iconBtn setBackgroundImage:image forState:UIControlStateNormal];
 }
 
 @end

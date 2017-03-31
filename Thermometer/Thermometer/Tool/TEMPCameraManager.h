@@ -11,6 +11,7 @@
 @protocol TEMPCameraManagerDelegate <NSObject>
 
 - (void)canclePhotograph;
+- (void)findPhotograph:(UIImage *)image;
 
 @end
 
@@ -19,7 +20,6 @@
 @property (nonatomic, assign) id <TEMPCameraManagerDelegate>cameraDelegate;
 
 + (instancetype)shareInstance;
-- (void)buildCameraManager:(UIView *)view;
-- (void)stopCamera;
+- (void)buildCameraManager:(UIViewController *)controller;
 
 @end

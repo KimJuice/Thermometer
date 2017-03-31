@@ -8,6 +8,14 @@
 
 #import <UIKit/UIKit.h>
 
+@protocol TEMPCameraControllerDelegate <NSObject>
+
+- (void)findPhotographWithImage:(UIImage *)image;
+
+@end
+
 @interface TEMPCameraController : UIViewController
+
+@property (nonatomic, assign) id <TEMPCameraControllerDelegate>cameraDelegate;
 
 @end

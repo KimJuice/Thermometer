@@ -27,7 +27,7 @@
     
     SETBACKGROUNDCOLOR(UIBgBlackColor);
     self.cameraManager = [TEMPCameraManager shareInstance];
-    [self.cameraManager buildCameraManager:self.view];
+    [self.cameraManager buildCameraManager:self];
     self.cameraManager.cameraDelegate = self;
 }
 
@@ -46,6 +46,12 @@
 - (void)canclePhotograph {
 
     [self dismissViewControllerAnimated:YES completion:nil];
+}
+
+- (void)findPhotograph:(UIImage *)image {
+
+    if ([self.cameraDelegate respondsToSelector:@selector(findPhotographWithImage:)])
+        [self.cameraDelegate findPhotographWithImage:image];
 }
 
 @end
