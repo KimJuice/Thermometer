@@ -9,28 +9,27 @@
 #import "TEMPCameraManager.h"
 #import <AVFoundation/AVFoundation.h>
 
-#define UILayerY (SCREEN_HEIGHT - SCREEN_WIDTH) * 0.5
-#define UIButtonW SCREEN_WIDTH * 0.3
-#define UIButtonH SCREEN_HEIGHT * 0.08
+#define UILayerY        (SCREEN_HEIGHT - SCREEN_WIDTH) * 0.5
+#define UIButtonW       SCREEN_WIDTH * 0.3
+#define UIButtonH       SCREEN_HEIGHT * 0.08
+// In k units
+#define CGIconMaximum   1024
 
 @interface TEMPCameraManager ()
 
-// 会话
+// Camera
 @property (nonatomic, strong) AVCaptureSession *session;
-// 设备输入
 @property (nonatomic, strong) AVCaptureDeviceInput *deviceInput;
-// 设备输出
 @property (nonatomic, strong) AVCaptureStillImageOutput *deviceOutput;
-// 预览
 @property (nonatomic, strong) AVCaptureVideoPreviewLayer *previewLayer;
-// 连接
 @property (nonatomic, strong) AVCaptureConnection *connection;
 
-@property (nonatomic, strong) UIViewController *controller;
 // PhotographBg
+@property (nonatomic, strong) UIViewController *controller;
 @property (nonatomic, strong) UIView *photographBg;
 @property (nonatomic, strong) UIButton *cancelBtn;
 @property (nonatomic, strong) UIButton *photographBtn;
+
 // SetupImageBg
 @property (nonatomic, strong) UIView *setupImageBg;
 @property (nonatomic, strong) UIButton *retakeBtn;
@@ -95,6 +94,8 @@
         [self.session startRunning];
     });
 }
+
+#pragma mark - ViewMethods
 
 - (void)setupUI:(UIView *)view {
     
@@ -218,15 +219,35 @@
 
 - (void)usePhoto:(UIButton *)sender {
     
+    UIImage *image = [self compressPicture:self.imageView.image];
+    
     if ([self.cameraDelegate respondsToSelector:@selector(findPhotograph:)])
-        [self.cameraDelegate findPhotograph:self.imageView.image];
+        [self.cameraDelegate findPhotograph:image];
     [self cancelCamera:self.cancelBtn];
     [self stopCamera];
 }
 
+#pragma mark - FunctionalMethod
+
 - (void)stopCamera {
     
     [self.session stopRunning];
+}
+
+- (UIImage *)compressPicture:(UIImage *)image {
+
+    UIImage *compressImage = [UIImage imageWithSize:CGSizeMake(640, 640) sourceImage:image];
+    CGFloat quality = 1.1;
+    NSData *data;
+    
+    do {
+        
+        data = UIImageJPEGRepresentation(compressImage, quality -= 0.1);
+    } while (data.length > CGIconMaximum && quality > 0);
+    
+    data = UIImageJPEGRepresentation(compressImage, quality);
+    
+    return [UIImage imageWithData:data];
 }
 
 @end

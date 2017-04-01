@@ -7,7 +7,6 @@
 //
 
 #import "TEMPCameraController.h"
-#import "TEMPCameraManager.h"
 
 @interface TEMPCameraController () <TEMPCameraManagerDelegate>
 

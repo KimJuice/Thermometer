@@ -57,13 +57,13 @@ TEMPCameraControllerDelegate
     WEAKSELF
     
     self.iconBtn = [UIButton new];
-    [self.iconBtn setBackgroundImage:UIImageNamed(ICON_Button_Add_Portrait) forState:UIControlStateNormal];
-    [self.iconBtn addTarget:self action:@selector(setupPortrait:) forControlEvents:UIControlEventTouchUpInside];
+    [self setupIconBtn:self.iconBtn icon:nil];
+    [self.iconBtn addTarget:self action:@selector(clickPortrait:) forControlEvents:UIControlEventTouchUpInside];
     [self.view addSubview:self.iconBtn];
     [self.iconBtn mas_makeConstraints:^(MASConstraintMaker *make) {
         make.top.equalTo(weakSelf.view).offset(SCREEN_HEIGHT * 0.16);
         make.centerX.equalTo(weakSelf.view);
-        make.width.and.height.mas_equalTo(CGICONSIZE);
+        make.size.mas_equalTo(CGICONSIZE);
     }];
     
     self.userNameLabel = [UILabel new];
@@ -157,6 +157,19 @@ TEMPCameraControllerDelegate
     }];
 }
 
+- (void)setupIconBtn:(UIButton *)btn icon:(UIImage *)icon {
+
+    icon = icon ?: [UIImage imageWithContentsOfFile:NSPortraitPath];
+    
+    if (icon) {
+        
+        [btn setupWithPortrait:icon iconSize:CGICONSIZE];
+    }else {
+        
+        [btn setBackgroundImage:UIImageNamed(ICON_Button_Add_Portrait) forState:UIControlStateNormal];
+    }
+}
+
 - (void)touchesBegan:(NSSet<UITouch *> *)touches withEvent:(UIEvent *)event {
     
     [self.userNameField resignFirstResponder];
@@ -175,13 +188,12 @@ TEMPCameraControllerDelegate
 
 #pragma mark - ClickEvent
 
-- (void)setupPortrait:(UIButton *)sender {
+- (void)clickPortrait:(UIButton *)sender {
 
     UIAlertController *alertController = [UIAlertController alertControllerWithTitle:nil message:nil preferredStyle:UIAlertControllerStyleActionSheet];
     
     UIAlertAction *cameraAction = [UIAlertAction actionWithTitle:@"Camera" style:UIAlertActionStyleDefault handler:^(UIAlertAction *action) {
         
-        // 检测相机是否可用
         if (![UIImagePickerController isSourceTypeAvailable:UIImagePickerControllerSourceTypeCamera]) {
         
             [UIAlertController alertControllerWithMessage:AVCameraNoSupport controller:self];
@@ -252,40 +264,42 @@ TEMPCameraControllerDelegate
 
 - (void)imagePickerController:(UIImagePickerController *)picker didFinishPickingMediaWithInfo:(NSDictionary<NSString *,id> *)info {
 
-    TEMPEditImageController *editCon = [TEMPEditImageController new];
-    editCon.sourceImage = info[UIImagePickerControllerOriginalImage];
-    
-    [picker presentViewController:editCon animated:YES completion:nil];
-    
-    /*
-    [self.iconBtn setBackgroundImage:image forState:UIControlStateNormal];
-
-    NSString *path = [NSDocumentPath stringByAppendingPathComponent:@"Portrait"];
-    if (![[NSFileManager defaultManager] isExecutableFileAtPath:path]) {
-        [[NSFileManager defaultManager] createDirectoryAtPath:path withIntermediateDirectories:YES attributes:nil error:nil];
-    }
-    
-    NSData *data = UIImagePNGRepresentation(image);
-    
-    
-    
-    if ([data writeToFile:[path stringByAppendingPathComponent:@"Portrait.PNG"] atomically:YES]) {
-        
-        NSLog(@"The Portrait was written successfully!!!");
-    }else {
-    
-        NSLog(@"The Portrait was written failed!!! Reason: %@", data.bytes);
-    }
-    
+    UIImage *image = info[UIImagePickerControllerOriginalImage];
+    image = [[TEMPCameraManager shareInstance] compressPicture:image];
+    [self setupIconBtn:self.iconBtn icon:image];
+    [self savePortrait:image];
     [picker dismissViewControllerAnimated:YES completion:nil];
-     */
 }
 
 #pragma mark - TEMPCameraControllerDelegate
 
 - (void)findPhotographWithImage:(UIImage *)image {
 
-    [self.iconBtn setBackgroundImage:image forState:UIControlStateNormal];
+    [self setupIconBtn:self.iconBtn icon:image];
+    [self savePortrait:image];
+}
+
+#pragma mark - FunctionalMethod
+
+- (void)savePortrait:(UIImage *)image {
+
+    NSString *path = [NSDocumentPath stringByAppendingPathComponent:@"Portrait"];
+    
+    if (![[NSFileManager defaultManager] isExecutableFileAtPath:path])
+        [[NSFileManager defaultManager] createDirectoryAtPath:path withIntermediateDirectories:YES attributes:nil error:nil];
+    
+    NSData *data = UIImagePNGRepresentation(image);
+    
+    dispatch_async(dispatch_get_main_queue(), ^{
+        
+        if ([data writeToFile:NSPortraitPath atomically:YES]) {
+            
+            NSLog(@"The Portrait was written successfully!!!");
+        }else {
+            
+            NSLog(@"The Portrait was written failed!!! Reason: %@", data.bytes);
+        }
+    });
 }
 
 @end

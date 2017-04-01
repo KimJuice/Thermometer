@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		2405323A1E851298002E3A89 /* Button_Field_secureEntry_NO.png in Resources */ = {isa = PBXBuildFile; fileRef = 240532381E851298002E3A89 /* Button_Field_secureEntry_NO.png */; };
 		2405323B1E851298002E3A89 /* Button_Field_secureEntry_YES.png in Resources */ = {isa = PBXBuildFile; fileRef = 240532391E851298002E3A89 /* Button_Field_secureEntry_YES.png */; };
+		240EEAEB1E8F91C4001DBC57 /* UIView+Extension.m in Sources */ = {isa = PBXBuildFile; fileRef = 240EEAEA1E8F91C4001DBC57 /* UIView+Extension.m */; };
 		24115EF21E8A0C2A00FB9044 /* TEMPBaseViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 24115EF11E8A0C2A00FB9044 /* TEMPBaseViewController.m */; };
 		24115F021E8A3F4400FB9044 /* bgImage2.png in Resources */ = {isa = PBXBuildFile; fileRef = 24115EFF1E8A3F4400FB9044 /* bgImage2.png */; };
 		24115F031E8A3F4400FB9044 /* bgImage3.png in Resources */ = {isa = PBXBuildFile; fileRef = 24115F001E8A3F4400FB9044 /* bgImage3.png */; };
@@ -50,6 +51,8 @@
 /* Begin PBXFileReference section */
 		240532381E851298002E3A89 /* Button_Field_secureEntry_NO.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Button_Field_secureEntry_NO.png; sourceTree = "<group>"; };
 		240532391E851298002E3A89 /* Button_Field_secureEntry_YES.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Button_Field_secureEntry_YES.png; sourceTree = "<group>"; };
+		240EEAE91E8F91C4001DBC57 /* UIView+Extension.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIView+Extension.h"; sourceTree = "<group>"; };
+		240EEAEA1E8F91C4001DBC57 /* UIView+Extension.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIView+Extension.m"; sourceTree = "<group>"; };
 		24115EF01E8A0C2A00FB9044 /* TEMPBaseViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TEMPBaseViewController.h; sourceTree = "<group>"; };
 		24115EF11E8A0C2A00FB9044 /* TEMPBaseViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TEMPBaseViewController.m; sourceTree = "<group>"; };
 		24115EFF1E8A3F4400FB9044 /* bgImage2.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = bgImage2.png; sourceTree = "<group>"; };
@@ -196,6 +199,8 @@
 		247F870D1E84BD6700CE047E /* Category */ = {
 			isa = PBXGroup;
 			children = (
+				240EEAE91E8F91C4001DBC57 /* UIView+Extension.h */,
+				240EEAEA1E8F91C4001DBC57 /* UIView+Extension.m */,
 				247F870E1E84BD6700CE047E /* UIImage+Extension.h */,
 				247F870F1E84BD6700CE047E /* UIImage+Extension.m */,
 				247078CC1E84D38900E12562 /* UIButton+Extension.h */,
@@ -488,6 +493,7 @@
 				249734991E8CE61C00AEA9ED /* UIAlertController+Extension.m in Sources */,
 				247F872E1E84BD6700CE047E /* TEMPTextField.m in Sources */,
 				247F872C1E84BD6700CE047E /* TEMPLoginController.m in Sources */,
+				240EEAEB1E8F91C4001DBC57 /* UIView+Extension.m in Sources */,
 				247F870C1E84BD3600CE047E /* TEMPAppDelegate.m in Sources */,
 				247078CE1E84D38900E12562 /* UIButton+Extension.m in Sources */,
 				249734A31E8D033700AEA9ED /* TEMPEditImageController.m in Sources */,

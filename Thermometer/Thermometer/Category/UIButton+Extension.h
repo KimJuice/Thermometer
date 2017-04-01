@@ -11,5 +11,6 @@
 @interface UIButton (Extension)
 
 + (UIButton *)buttonWithText:(NSString *)title textColor:(UIColor *)textColor textSize:(CGFloat)textSize horizontalAlignment:(UIControlContentHorizontalAlignment)horizontalAlignment;
+- (void)setupWithPortrait:(UIImage *)portrait iconSize:(CGSize)iconSize;
 
 @end

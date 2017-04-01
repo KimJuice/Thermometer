@@ -12,6 +12,7 @@
 /*头文件引用*/
 #import "Masonry.h"
 #import "FMDB.h"
+#import "UIView+Extension.h"
 #import "UIImage+Extension.h"
 #import "UIButton+Extension.h"
 #import "UIAlertAction+Extension.h"
@@ -21,24 +22,24 @@
 
 /*宏定义*/
 //--- UI ---//
-#define SCREEN_WIDTH [UIScreen mainScreen].bounds.size.width
-#define SCREEN_HEIGHT [UIScreen mainScreen].bounds.size.height
-#define SETBACKGROUNDCOLOR(color) self.view.backgroundColor = color;
-#define CGICONSIZE 70
+#define SCREEN_WIDTH                [UIScreen mainScreen].bounds.size.width
+#define SCREEN_HEIGHT               [UIScreen mainScreen].bounds.size.height
+#define SETBACKGROUNDCOLOR(color)   self.view.backgroundColor = color;
+#define CGICONSIZE                  CGSizeMake(80, 80)
 
 //--- color ---//
-#define UIColorRGBNoAlpha(r, g, b) [UIColor colorWithRed:r / 255.0f green:g / 255.0f blue:b / 255.0f alpha:1.0]
-#define UIColorRGB(r, g, b, a)     [UIColor colorWithRed:r / 255.0f green:g / 255.0f blue:b / 255.0f alpha:a]
-#define UIButtonPinkColor(a)       [UIColor colorWithRed:255 / 255.0f green:0 / 255.0f blue:114 / 255.0f alpha:a]
-#define UIButtonGreenColor(a)      [UIColor colorWithRed:48 / 255.0f green:173 / 255.0f blue:100 / 255.0f alpha:a]
-#define UIBgBlackColor             [UIColor colorWithRed:51 / 255.0f green:51 / 255.0f blue:51 / 255.0f alpha:1.0]
-#define UIFontBlackColor           [UIColor colorWithRed:85 / 255.0f green:85 / 255.0f blue:85 / 255.0f alpha:1.0]
-#define UIFontLightColor           [UIColor colorWithRed:85 / 255.0f green:85 / 255.0f blue:85 / 255.0f alpha:0.5]
-#define UIFontWhiteColor(a)        [UIColor colorWithWhite:1.0 alpha:a]
+#define UIColorRGBNoAlpha(r, g, b)  [UIColor colorWithRed:r / 255.0f green:g / 255.0f blue:b / 255.0f alpha:1.0]
+#define UIColorRGB(r, g, b, a)      [UIColor colorWithRed:r / 255.0f green:g / 255.0f blue:b / 255.0f alpha:a]
+#define UIButtonPinkColor(a)        [UIColor colorWithRed:255 / 255.0f green:0 / 255.0f blue:114 / 255.0f alpha:a]
+#define UIButtonGreenColor(a)       [UIColor colorWithRed:48 / 255.0f green:173 / 255.0f blue:100 / 255.0f alpha:a]
+#define UIBgBlackColor              [UIColor colorWithRed:51 / 255.0f green:51 / 255.0f blue:51 / 255.0f alpha:1.0]
+#define UIFontBlackColor            [UIColor colorWithRed:85 / 255.0f green:85 / 255.0f blue:85 / 255.0f alpha:1.0]
+#define UIFontLightColor            [UIColor colorWithRed:85 / 255.0f green:85 / 255.0f blue:85 / 255.0f alpha:0.5]
+#define UIFontWhiteColor(a)         [UIColor colorWithWhite:1.0 alpha:a]
 
 //--- image ---//
-#define UIImageNamed(name) [UIImage imageNamed:name]
-// 界面高斯模糊动画效果
+#define UIImageNamed(name)          [UIImage imageNamed:name]
+// UIBlurEffectAnimation
 #define UIBlurEffect(bgImageView) \
 UIVisualEffectView *blurView = [[UIVisualEffectView alloc] init]; \
 blurView.frame = self.view.frame; \
@@ -49,15 +50,16 @@ blurView.alpha = 0.8; \
 } completion:nil];
 
 //--- path ---//
-#define NSDocumentPath NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES).firstObject
+#define NSDocumentPath              NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES).firstObject
+#define NSPortraitPath              [NSDocumentPath stringByAppendingPathComponent:@"Portrait/Portrait.PNG"]
 
 //--- String ---//
-#define AVCameraPermit          @"The camera doesn't have permission, please go to setup."
-#define AVCameraNoSupport       @"The current device doesn't support the camera."
-#define AVPhotoLibraryPermit    @"The photo library doesn't have permission, please go to setup."
-#define AVPhotoLibraryNoSupport       @"The current device doesn't support the photo library."
+#define AVCameraPermit              @"The camera doesn't have permission, please go to setup."
+#define AVCameraNoSupport           @"The current device doesn't support the camera."
+#define AVPhotoLibraryPermit        @"The photo library doesn't have permission, please go to setup."
+#define AVPhotoLibraryNoSupport     @"The current device doesn't support the photo library."
 
 //--- 其他 ---//
-#define WEAKSELF                        __weak typeof(self) weakSelf = self;
+#define WEAKSELF                    __weak typeof(self) weakSelf = self;
 
 #endif /* TEMP_PrefixHeader_pch */

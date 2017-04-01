@@ -22,4 +22,10 @@
     return btn;
 }
 
+- (void)setupWithPortrait:(UIImage *)portrait iconSize:(CGSize)iconSize {
+
+    portrait = [UIImage imageWithPortrait:portrait borderWidth:35 borderColor:UIFontWhiteColor(0.2).CGColor];
+    [self setBackgroundImage:portrait forState:UIControlStateNormal];
+}
+
 @end

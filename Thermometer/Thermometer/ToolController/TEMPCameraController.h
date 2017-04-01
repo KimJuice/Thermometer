@@ -7,6 +7,7 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "TEMPCameraManager.h"
 
 @protocol TEMPCameraControllerDelegate <NSObject>
 

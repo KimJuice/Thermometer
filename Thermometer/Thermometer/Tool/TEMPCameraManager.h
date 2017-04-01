@@ -21,5 +21,6 @@
 
 + (instancetype)shareInstance;
 - (void)buildCameraManager:(UIViewController *)controller;
+- (UIImage *)compressPicture:(UIImage *)image;
 
 @end
