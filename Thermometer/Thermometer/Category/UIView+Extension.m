@@ -10,6 +10,21 @@
 
 @implementation UIView (Extension)
 
+- (CGPoint)origin {
+
+    return self.frame.origin;
+}
+
+- (CGFloat)x {
+    
+    return self.origin.x;
+}
+
+- (CGFloat)y {
+
+    return self.origin.y;
+}
+
 - (CGSize)size {
     
     return self.frame.size;

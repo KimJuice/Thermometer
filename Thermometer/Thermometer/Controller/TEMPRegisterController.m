@@ -12,6 +12,7 @@
 #import "TEMPPermitManager.h"
 #import "TEMPEditImageController.h"
 #import "TEMPCameraController.h"
+#import "TEMPKeyboardManager.h"
 
 #define kBoxHeight 25
 #define kBoxWidth SCREEN_WIDTH * 0.8
@@ -21,7 +22,8 @@
 UITextFieldDelegate,
 UIImagePickerControllerDelegate,
 UINavigationControllerDelegate,
-TEMPCameraControllerDelegate
+TEMPCameraControllerDelegate,
+TEMPKeyboardManagerDelegate
 >
 
 @property (nonatomic, strong) UIButton *iconBtn;
@@ -30,7 +32,7 @@ TEMPCameraControllerDelegate
 @property (nonatomic, strong) UILabel *emailLabel;
 @property (nonatomic, strong) TEMPTextField *emailField;
 @property (nonatomic, strong) UILabel *passWordLabel;
-@property (nonatomic, strong) TEMPTextField *passWordField;
+@property (nonatomic, strong) TEMPTextField *passWordField; // 101
 @property (nonatomic, strong) UILabel *phoneLabel;
 @property (nonatomic, strong) TEMPTextField *phoneField;
 @property (nonatomic, strong) UIButton *signUpBtn;
@@ -38,9 +40,14 @@ TEMPCameraControllerDelegate
 @property (nonatomic, strong) TEMPCameraController *cameraController;
 @property (nonatomic, strong) UIImage *icon;
 
+@property (nonatomic, strong) TEMPKeyboardManager *keyboardManager;
+@property (nonatomic, strong) TEMPTextField *currentField;
+
 @end
 
 @implementation TEMPRegisterController
+
+#pragma mark - LazyLoading
 
 #pragma mark - ViewMethods
 
@@ -55,6 +62,8 @@ TEMPCameraControllerDelegate
     SETBACKGROUNDCOLOR(UIBgBlackColor)
     self.bgImageView.image = UIImageNamed(ICON_BG_Login);
     self.icon = UIImageNamed(ICON_Default_Portrait);
+    self.keyboardManager = [[TEMPKeyboardManager alloc] initWithNotification:self];
+    self.keyboardManager.keyboardDelegate = self;
     
     WEAKSELF
     
@@ -150,6 +159,7 @@ TEMPCameraControllerDelegate
     
     self.passWordField = [[TEMPTextField alloc] initWithLineType:CGSizeMake(kBoxWidth, kBoxHeight) subjectColor:UIFontWhiteColor(0.9) clearButtonImage:nil placeholder:@"••••••" isSecureEntry:YES];
     self.passWordField.delegate = self;
+    self.passWordField.tag = 101;
     [self.view addSubview:self.passWordField];
     [self.passWordField mas_makeConstraints:^(MASConstraintMaker *make) {
         make.top.equalTo(weakSelf.passWordLabel.mas_bottom).offset(6);
@@ -175,10 +185,7 @@ TEMPCameraControllerDelegate
 
 - (void)touchesBegan:(NSSet<UITouch *> *)touches withEvent:(UIEvent *)event {
     
-    [self.userNameField resignFirstResponder];
-    [self.phoneField resignFirstResponder];
-    [self.emailField resignFirstResponder];
-    [self.passWordField resignFirstResponder];
+    [self resignFirstResponders];
 }
 
 - (UIStatusBarStyle)preferredStatusBarStyle {
@@ -248,6 +255,30 @@ TEMPCameraControllerDelegate
 
 #pragma mark - UITextFieldDelegate
 
+- (BOOL)textFieldShouldBeginEditing:(UITextField *)textField {
+    
+    self.currentField = (TEMPTextField *)textField;
+    return YES;
+}
+
+- (BOOL)textFieldShouldReturn:(UITextField *)textField {
+    
+    if (textField.tag == 101) {
+        
+        [self signUp:self.signUpBtn];
+    }
+    
+    [self resignFirstResponders];
+    return YES;
+}
+
+#pragma mark - TEMPKeyboardManagerDelegate
+
+- (void)keyboardChangeWithNotification:(NSNotification *)notification {
+    
+    [TEMPKeyboardManager setupKeyboardHeightwithView:self.view rect:self.currentField.frame notification:notification];
+}
+
 #pragma mark - UIImagePickerControllerDelegate
 
 - (void)imagePickerController:(UIImagePickerController *)picker didFinishPickingMediaWithInfo:(NSDictionary<NSString *,id> *)info {
@@ -287,6 +318,14 @@ TEMPCameraControllerDelegate
             NSLog(@"The Portrait was written failed!!! Reason: %@", data.bytes);
         }
     });
+}
+
+- (void)resignFirstResponders {
+    
+    [self.userNameField resignFirstResponder];
+    [self.phoneField resignFirstResponder];
+    [self.emailField resignFirstResponder];
+    [self.passWordField resignFirstResponder];
 }
 
 @end

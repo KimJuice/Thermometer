@@ -52,6 +52,7 @@
 		249734991E8CE61C00AEA9ED /* UIAlertController+Extension.m in Sources */ = {isa = PBXBuildFile; fileRef = 249734981E8CE61C00AEA9ED /* UIAlertController+Extension.m */; };
 		249734A31E8D033700AEA9ED /* TEMPEditImageController.m in Sources */ = {isa = PBXBuildFile; fileRef = 249734A21E8D033700AEA9ED /* TEMPEditImageController.m */; };
 		24B8A6571E8BC0230097DAFB /* UIAlertAction+Extension.m in Sources */ = {isa = PBXBuildFile; fileRef = 24B8A6561E8BC0230097DAFB /* UIAlertAction+Extension.m */; };
+		24D829561E97703000BBF1E1 /* TEMPKeyboardManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 24D829551E97703000BBF1E1 /* TEMPKeyboardManager.m */; };
 		B87E4DE90384BFFFA3ECB0DA /* libPods-Thermometer.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 7FF29DAC4AC50CD84ACC7145 /* libPods-Thermometer.a */; };
 /* End PBXBuildFile section */
 
@@ -129,6 +130,8 @@
 		249734A21E8D033700AEA9ED /* TEMPEditImageController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TEMPEditImageController.m; sourceTree = "<group>"; };
 		24B8A6551E8BC0230097DAFB /* UIAlertAction+Extension.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIAlertAction+Extension.h"; sourceTree = "<group>"; };
 		24B8A6561E8BC0230097DAFB /* UIAlertAction+Extension.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIAlertAction+Extension.m"; sourceTree = "<group>"; };
+		24D829541E97703000BBF1E1 /* TEMPKeyboardManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TEMPKeyboardManager.h; sourceTree = "<group>"; };
+		24D829551E97703000BBF1E1 /* TEMPKeyboardManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TEMPKeyboardManager.m; sourceTree = "<group>"; };
 		7FF29DAC4AC50CD84ACC7145 /* libPods-Thermometer.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-Thermometer.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		B846CD1E5B83BEA7C9172077 /* Pods-Thermometer.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Thermometer.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Thermometer/Pods-Thermometer.debug.xcconfig"; sourceTree = "<group>"; };
 		F56D2755FA44FE4E3AA0EB2C /* Pods-Thermometer.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Thermometer.release.xcconfig"; path = "Pods/Target Support Files/Pods-Thermometer/Pods-Thermometer.release.xcconfig"; sourceTree = "<group>"; };
@@ -184,6 +187,8 @@
 				244E96CD1E9745F60095A64A /* TEMPLoginConfigurationManager.m */,
 				244E96CE1E9745F60095A64A /* TEMPPermitManager.h */,
 				244E96CF1E9745F60095A64A /* TEMPPermitManager.m */,
+				24D829541E97703000BBF1E1 /* TEMPKeyboardManager.h */,
+				24D829551E97703000BBF1E1 /* TEMPKeyboardManager.m */,
 			);
 			path = Manager;
 			sourceTree = "<group>";
@@ -551,6 +556,7 @@
 				247F872D1E84BD6700CE047E /* TEMPMeasureController.m in Sources */,
 				242E044D1E88C1DD00469527 /* TEMPTabBarController.m in Sources */,
 				247F872A1E84BD6700CE047E /* UIImage+Extension.m in Sources */,
+				24D829561E97703000BBF1E1 /* TEMPKeyboardManager.m in Sources */,
 				244E96D01E9745F60095A64A /* TEMPCameraManager.m in Sources */,
 				247F87341E84BD6700CE047E /* TEMPChartView.m in Sources */,
 				242F76321E8E0B1D0006FA5B /* TEMPCameraController.m in Sources */,

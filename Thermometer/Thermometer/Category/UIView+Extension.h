@@ -10,6 +10,10 @@
 
 @interface UIView (Extension)
 
+- (CGPoint)origin;
+- (CGFloat)x;
+- (CGFloat)y;
+
 - (CGSize)size;
 - (CGFloat)width;
 - (CGFloat)height;
