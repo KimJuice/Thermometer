@@ -9,7 +9,6 @@
 #import "TEMPLoginController.h"
 #import "TEMPTextField.h"
 #import "TEMPTabBarController.h"
-#import <objc/runtime.h>
 #import "TEMPPermitManager.h"
 #import "TEMPEditImageController.h"
 #import "TEMPCameraController.h"
@@ -17,15 +16,9 @@
 #define kBoxHeight 25
 #define kBoxWidth SCREEN_WIDTH * 0.8
 
-@interface TEMPLoginController ()
-<
-UITextFieldDelegate,
-UIImagePickerControllerDelegate,
-UINavigationControllerDelegate,
-TEMPCameraControllerDelegate
->
+@interface TEMPLoginController () <UITextFieldDelegate>
 
-@property (nonatomic, strong) UIButton *iconBtn;
+@property (nonatomic, strong) UIImageView *iconView;
 @property (nonatomic, strong) UILabel *userNameLabel;
 @property (nonatomic, strong) TEMPTextField *userNameField;
 @property (nonatomic, strong) UILabel *passWordLabel;
@@ -33,8 +26,6 @@ TEMPCameraControllerDelegate
 @property (nonatomic, strong) UIButton *loginBtn;
 @property (nonatomic, strong) UIButton *forgotKeyBtn;
 @property (nonatomic, strong) UIButton *signUpBtn;
-@property (nonatomic, strong) UIImagePickerController *picker;
-@property (nonatomic, strong) TEMPCameraController *cameraController;
 
 @end
 
@@ -56,11 +47,10 @@ TEMPCameraControllerDelegate
     
     WEAKSELF
     
-    self.iconBtn = [UIButton new];
-    [self setupIconBtn:self.iconBtn icon:nil];
-    [self.iconBtn addTarget:self action:@selector(clickPortrait:) forControlEvents:UIControlEventTouchUpInside];
-    [self.view addSubview:self.iconBtn];
-    [self.iconBtn mas_makeConstraints:^(MASConstraintMaker *make) {
+    self.iconView = [UIImageView new];
+    [self.iconView setupWithPortrait:UIImageNamed(ICON_Default_Portrait) iconSize:CGICONSIZE];
+    [self.view addSubview:self.iconView];
+    [self.iconView mas_makeConstraints:^(MASConstraintMaker *make) {
         make.top.equalTo(weakSelf.view).offset(SCREEN_HEIGHT * 0.16);
         make.centerX.equalTo(weakSelf.view);
         make.size.mas_equalTo(CGICONSIZE);
@@ -72,7 +62,7 @@ TEMPCameraControllerDelegate
     self.userNameLabel.text = @"USERNAME";
     [self.view addSubview:self.userNameLabel];
     [self.userNameLabel mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.top.equalTo(weakSelf.iconBtn.mas_bottom).offset(SCREEN_HEIGHT * 0.16 - 20);
+        make.top.equalTo(weakSelf.iconView.mas_bottom).offset(SCREEN_HEIGHT * 0.16 - 20);
         make.centerX.equalTo(weakSelf.view);
         make.width.mas_equalTo(kBoxWidth);
         make.height.mas_equalTo(22);
@@ -157,19 +147,6 @@ TEMPCameraControllerDelegate
     }];
 }
 
-- (void)setupIconBtn:(UIButton *)btn icon:(UIImage *)icon {
-
-    icon = icon ?: [UIImage imageWithContentsOfFile:NSPortraitPath];
-    
-    if (icon) {
-        
-        [btn setupWithPortrait:icon iconSize:CGICONSIZE];
-    }else {
-        
-        [btn setBackgroundImage:UIImageNamed(ICON_Button_Add_Portrait) forState:UIControlStateNormal];
-    }
-}
-
 - (void)touchesBegan:(NSSet<UITouch *> *)touches withEvent:(UIEvent *)event {
     
     [self.userNameField resignFirstResponder];
@@ -188,59 +165,6 @@ TEMPCameraControllerDelegate
 
 #pragma mark - ClickEvent
 
-- (void)clickPortrait:(UIButton *)sender {
-
-    UIAlertController *alertController = [UIAlertController alertControllerWithTitle:nil message:nil preferredStyle:UIAlertControllerStyleActionSheet];
-    
-    UIAlertAction *cameraAction = [UIAlertAction actionWithTitle:@"Camera" style:UIAlertActionStyleDefault handler:^(UIAlertAction *action) {
-        
-        if (![UIImagePickerController isSourceTypeAvailable:UIImagePickerControllerSourceTypeCamera]) {
-        
-            [UIAlertController alertControllerWithMessage:AVCameraNoSupport controller:self];
-            return;
-        }
-        [TEMPPermitManager permitWithCamera:self];
-        
-//        self.picker = [[UIImagePickerController alloc] init];
-//        self.picker.view.backgroundColor = UIBgBlackColor;
-//        self.picker.sourceType = UIImagePickerControllerSourceTypeCamera;
-//        self.picker.delegate = self;
-//        [self.picker setShowsCameraControls:YES];
-//        [self presentViewController:self.picker animated:YES completion:nil];
-        
-        TEMPCameraController *camera = [TEMPCameraController new];
-        camera.cameraDelegate = self;
-        [self presentViewController:camera animated:YES completion:nil];
-        
-    } titleColor:UIFontBlackColor];
-
-    UIAlertAction *libraryAction = [UIAlertAction actionWithTitle:@"Photo Library" style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
-        
-        if (![UIImagePickerController isSourceTypeAvailable:UIImagePickerControllerSourceTypePhotoLibrary]) {
-            
-            [UIAlertController alertControllerWithMessage:AVPhotoLibraryNoSupport controller:self];
-            return;
-        }
-        [TEMPPermitManager permitWithCamera:self];
-        
-        self.picker = [[UIImagePickerController alloc] init];
-        self.picker.view.backgroundColor = UIBgBlackColor;
-        self.picker.sourceType = UIImagePickerControllerSourceTypePhotoLibrary;
-        self.picker.delegate = self;
-        [self.picker setAllowsEditing:YES];
-        [self presentViewController:self.picker animated:YES completion:nil];
-    
-    } titleColor:UIFontBlackColor];
-
-    UIAlertAction *cancelAction = [UIAlertAction actionWithTitle:@"Cancel" style:UIAlertActionStyleCancel handler:^(UIAlertAction * _Nonnull action) {} titleColor:[[UIColor redColor] colorWithAlphaComponent:0.8]];
-    
-    [alertController addAction:cameraAction];
-    [alertController addAction:libraryAction];
-    [alertController addAction:cancelAction];
-    
-    [self presentViewController:alertController animated:YES completion:nil];
-}
-
 - (void)clickLoginBtn:(UIButton *)sender {
     
     [[TEMPSqlData sharedInstance] creatQueue];
@@ -256,50 +180,6 @@ TEMPCameraControllerDelegate
 - (void)signUp:(UIButton *)sender {
 
     NSLog(@"%s",__FUNCTION__);
-}
-
-#pragma mark - UITextFieldDelegate
-
-#pragma mark - UIImagePickerControllerDelegate
-
-- (void)imagePickerController:(UIImagePickerController *)picker didFinishPickingMediaWithInfo:(NSDictionary<NSString *,id> *)info {
-
-    UIImage *image = info[UIImagePickerControllerOriginalImage];
-    image = [[TEMPCameraManager shareInstance] compressPicture:image];
-    [self setupIconBtn:self.iconBtn icon:image];
-    [self savePortrait:image];
-    [picker dismissViewControllerAnimated:YES completion:nil];
-}
-
-#pragma mark - TEMPCameraControllerDelegate
-
-- (void)findPhotographWithImage:(UIImage *)image {
-
-    [self setupIconBtn:self.iconBtn icon:image];
-    [self savePortrait:image];
-}
-
-#pragma mark - FunctionalMethod
-
-- (void)savePortrait:(UIImage *)image {
-
-    NSString *path = [NSDocumentPath stringByAppendingPathComponent:@"Portrait"];
-    
-    if (![[NSFileManager defaultManager] isExecutableFileAtPath:path])
-        [[NSFileManager defaultManager] createDirectoryAtPath:path withIntermediateDirectories:YES attributes:nil error:nil];
-    
-    NSData *data = UIImagePNGRepresentation(image);
-    
-    dispatch_async(dispatch_get_main_queue(), ^{
-        
-        if ([data writeToFile:NSPortraitPath atomically:YES]) {
-            
-            NSLog(@"The Portrait was written successfully!!!");
-        }else {
-            
-            NSLog(@"The Portrait was written failed!!! Reason: %@", data.bytes);
-        }
-    });
 }
 
 @end

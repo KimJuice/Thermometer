@@ -20,10 +20,10 @@
     return instance;
 }
 
-- (FMDatabaseQueue *)creatQueue {
+- (void)creatQueue {
 
     NSString *databasePath = [NSDocumentPath stringByAppendingPathComponent:@"DatabaseFile"];
-    NSString *queuePath = [databasePath stringByAppendingPathComponent:@"Thermometer.db"];
+    NSString *queuePath = [databasePath stringByAppendingPathComponent:@"AccountInfo.db"];
     
     if (![[NSFileManager defaultManager] fileExistsAtPath:queuePath]) {
         
@@ -38,14 +38,26 @@
          * 排卵日: 3
          * 过渡期: 4
          */
-        NSString *tableList = @"CREATE TABLE 'CHART_TEMP' ( 'id' INTEGER PRIMARY KEY, 'IMDN_ID' TEXT NOT NULL, 'TEMP' REAL, 'TIME' TEXT, 'STATE' INTEGER);";
+//        NSMutableString *tableList = [NSMutableString string];
+//        [tableList appendString:@"CREATE TABLE 'CHART_TEMP' ( 'id' INTEGER PRIMARY KEY, 'IMDN_ID' TEXT NOT NULL, 'TEMP' REAL, 'TIME' TEXT, 'STATE' INTEGER);"];
+
+        NSString *sql = @"CREATE TABLE 'ACCOUNT_INFO' ( 'id' INTEGER PRIMARY KEY, 'USERNAME' TEXT NOT NULL, 'EMAIL' TEXT, 'KEY' TEXT NOT NULL)";
         [queue inDatabase:^(FMDatabase *db) {
 
-            NSLog(@"%@", [db executeStatements:tableList] ? [NSString stringWithFormat:@"The database was created successfully!!! \nPATH: %@", queuePath] : [NSString stringWithFormat:@"The database was created failed!!! \nERROR: %@", db.lastErrorMessage]);
+            BOOL isOK = [db executeUpdate:sql];
+            NSLog(@"%@", isOK ? [NSString stringWithFormat:@"The database was created successfully!!! \nPATH: %@", queuePath] : [NSString stringWithFormat:@"The database was created failed!!! \nERROR: %@", db.lastErrorMessage]);
         }];
     }
     
     self.queue = [FMDatabaseQueue databaseQueueWithPath:queuePath];
-    return self.queue;
 }
+
+- (NSString *)selectWithAccountInfo:(NSString *)userName {
+
+    __block NSString *key = @"";
+//    [self.queue ]
+    
+    return key;
+}
+
 @end

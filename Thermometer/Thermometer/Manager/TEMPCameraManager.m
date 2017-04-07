@@ -30,13 +30,11 @@
 @property (nonatomic, strong) UIButton *cancelBtn;
 @property (nonatomic, strong) UIButton *photographBtn;
 
-// SetupImageBg
-@property (nonatomic, strong) UIView *setupImageBg;
+// PortraitImageBg
+@property (nonatomic, strong) UIView *portraitImageBg;
 @property (nonatomic, strong) UIButton *retakeBtn;
 @property (nonatomic, strong) UIButton *usePhotoBtn;
 @property (nonatomic, strong) UIImageView *imageView;
-@property (nonatomic, strong) UIView *coverTop;
-@property (nonatomic, strong) UIView *coverBottom;
 
 @end
 
@@ -128,31 +126,24 @@
         make.height.mas_equalTo(UIButtonH);
     }];
     
-    // Init setupImageBg
-    self.setupImageBg = [[UIView alloc] initWithFrame:CGRectMake(SCREEN_WIDTH, 0, SCREEN_WIDTH, SCREEN_HEIGHT)];
-    self.setupImageBg.backgroundColor = self.photographBg.backgroundColor;
-    [view addSubview:self.setupImageBg];
+    // Init portraitImageBg
+    self.portraitImageBg = [[UIView alloc] initWithFrame:CGRectMake(SCREEN_WIDTH, 0, SCREEN_WIDTH, SCREEN_HEIGHT)];
+    self.portraitImageBg.backgroundColor = self.photographBg.backgroundColor;
+    [view addSubview:self.portraitImageBg];
     
     self.imageView = [[UIImageView alloc] initWithFrame:CGRectMake(0, UILayerY, SCREEN_WIDTH, SCREEN_WIDTH)];
     self.imageView.contentMode = UIViewContentModeScaleAspectFill;
+    self.imageView.clipsToBounds = YES;
     self.imageView.backgroundColor = [UIColor yellowColor];
-    [self.setupImageBg addSubview:self.imageView];
-    
-    self.coverTop = [[UIView alloc] initWithFrame:CGRectMake(0, 0, SCREEN_WIDTH, UILayerY)];
-    self.coverTop.backgroundColor = self.setupImageBg.backgroundColor;
-    [self.setupImageBg addSubview:self.coverTop];
-    
-    self.coverBottom = [[UIView alloc] initWithFrame:CGRectMake(0, SCREEN_HEIGHT - UILayerY, SCREEN_WIDTH, UILayerY)];
-    self.coverBottom.backgroundColor = self.setupImageBg.backgroundColor;
-    [self.setupImageBg addSubview:self.coverBottom];
+    [self.portraitImageBg addSubview:self.imageView];
     
     self.retakeBtn = [UIButton buttonWithText:@"Retake" textColor:[UIColor whiteColor] textSize:18 horizontalAlignment:UIControlContentHorizontalAlignmentCenter];
     self.retakeBtn.backgroundColor = [UIColor purpleColor];
     [self.retakeBtn addTarget:self action:@selector(retake:) forControlEvents:UIControlEventTouchUpInside];
-    [self.coverBottom addSubview:self.retakeBtn];
+    [self.portraitImageBg addSubview:self.retakeBtn];
     [self.retakeBtn mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.bottom.equalTo(weakSelf.setupImageBg).offset(-20);
-        make.left.equalTo(weakSelf.setupImageBg);
+        make.bottom.equalTo(weakSelf.portraitImageBg).offset(-20);
+        make.left.equalTo(weakSelf.portraitImageBg);
         make.width.mas_equalTo(UIButtonW);
         make.height.mas_equalTo(UIButtonH);
     }];
@@ -160,10 +151,10 @@
     self.usePhotoBtn = [UIButton buttonWithText:@"Use Photo" textColor:[UIColor whiteColor] textSize:18 horizontalAlignment:UIControlContentHorizontalAlignmentCenter];
     self.usePhotoBtn.backgroundColor = [UIColor grayColor];
     [self.usePhotoBtn addTarget:self action:@selector(usePhoto:) forControlEvents:UIControlEventTouchUpInside];
-    [self.coverBottom addSubview:self.usePhotoBtn];
+    [self.portraitImageBg addSubview:self.usePhotoBtn];
     [self.usePhotoBtn mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.bottom.equalTo(weakSelf.setupImageBg).offset(-20);
-        make.right.equalTo(weakSelf.setupImageBg);
+        make.bottom.equalTo(weakSelf.portraitImageBg).offset(-20);
+        make.right.equalTo(weakSelf.portraitImageBg);
         make.width.mas_equalTo(UIButtonW);
         make.height.mas_equalTo(UIButtonH);
     }];
@@ -193,7 +184,7 @@
                     
                     self.photographBg.transform = CGAffineTransformTranslate(self.photographBg.transform, -SCREEN_WIDTH, 0);
                     self.previewLayer.transform = CATransform3DMakeTranslation(-SCREEN_WIDTH, 0, 0);
-                    self.setupImageBg.transform = CGAffineTransformTranslate(self.setupImageBg.transform, -SCREEN_WIDTH, 0);
+                    self.portraitImageBg.transform = CGAffineTransformTranslate(self.portraitImageBg.transform, -SCREEN_WIDTH, 0);
                 } completion:nil];
                 
             }else {
@@ -213,7 +204,7 @@
         
         self.photographBg.transform = CGAffineTransformIdentity;
         self.previewLayer.transform = CATransform3DIdentity;
-        self.setupImageBg.transform = CGAffineTransformIdentity;
+        self.portraitImageBg.transform = CGAffineTransformIdentity;
     } completion:nil];
 }
 
@@ -236,7 +227,10 @@
 
 - (UIImage *)compressPicture:(UIImage *)image {
 
-    UIImage *compressImage = [UIImage imageWithSize:CGSizeMake(640, 640) sourceImage:image];
+    UIImage *img = [UIImage imageWithCGImage:image.CGImage scale:8 orientation:UIImageOrientationUp];
+    CGFloat imgY = fabs((img.height - img.width) * 0.5);
+    CGFloat imgW = img.width < img.height ? img.width : img.height;
+    UIImage *compressImage = [UIImage imageWithRect:CGRectMake(0, imgY, imgW, imgW) sourceImage:img];
     CGFloat quality = 1.1;
     NSData *data;
     

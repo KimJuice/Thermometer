@@ -13,6 +13,17 @@
 @property (nonatomic, strong) FMDatabaseQueue *queue;
 
 + (instancetype)sharedInstance;
-- (FMDatabaseQueue *)creatQueue;
+- (void)creatQueue;
+
+/** Select **/
+
+/**
+ 查询账户信息
+
+ @param userName 用户名/邮箱
+
+ @return 密码
+ */
+- (NSString *)selectWithAccountInfo:(NSString *)userName;
 
 @end

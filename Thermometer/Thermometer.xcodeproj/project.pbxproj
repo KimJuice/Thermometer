@@ -16,13 +16,21 @@
 		24115F041E8A3F4400FB9044 /* bgImage4.png in Resources */ = {isa = PBXBuildFile; fileRef = 24115F011E8A3F4400FB9044 /* bgImage4.png */; };
 		24115F081E8A4DC700FB9044 /* bgLoginImage.png in Resources */ = {isa = PBXBuildFile; fileRef = 24115F071E8A4DC700FB9044 /* bgLoginImage.png */; };
 		24115F0A1E8A54D600FB9044 /* Button_Add_Portrait.png in Resources */ = {isa = PBXBuildFile; fileRef = 24115F091E8A54D500FB9044 /* Button_Add_Portrait.png */; };
+		2423E62E1E95E70C00C2402E /* Login_Default_Portrait.png in Resources */ = {isa = PBXBuildFile; fileRef = 2423E62D1E95E70C00C2402E /* Login_Default_Portrait.png */; };
+		2423E6311E95EBA400C2402E /* TEMPRegisterController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2423E6301E95EBA400C2402E /* TEMPRegisterController.m */; };
+		2423E6341E961AFE00C2402E /* UIImageView+Extension.m in Sources */ = {isa = PBXBuildFile; fileRef = 2423E6331E961AFE00C2402E /* UIImageView+Extension.m */; };
 		242E044D1E88C1DD00469527 /* TEMPTabBarController.m in Sources */ = {isa = PBXBuildFile; fileRef = 242E044C1E88C1DD00469527 /* TEMPTabBarController.m */; };
 		242E04531E88EF5400469527 /* Tabbar_calendar.png in Resources */ = {isa = PBXBuildFile; fileRef = 242E044F1E88EF5400469527 /* Tabbar_calendar.png */; };
 		242E04541E88EF5400469527 /* Tabbar_chart.png in Resources */ = {isa = PBXBuildFile; fileRef = 242E04501E88EF5400469527 /* Tabbar_chart.png */; };
 		242E04551E88EF5400469527 /* Tabbar_home.png in Resources */ = {isa = PBXBuildFile; fileRef = 242E04511E88EF5400469527 /* Tabbar_home.png */; };
 		242E04561E88EF5400469527 /* Tabbar_me.png in Resources */ = {isa = PBXBuildFile; fileRef = 242E04521E88EF5400469527 /* Tabbar_me.png */; };
 		242F76321E8E0B1D0006FA5B /* TEMPCameraController.m in Sources */ = {isa = PBXBuildFile; fileRef = 242F76311E8E0B1D0006FA5B /* TEMPCameraController.m */; };
-		242F76351E8E452A0006FA5B /* TEMPCameraManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 242F76341E8E452A0006FA5B /* TEMPCameraManager.m */; };
+		244E96B61E97335E0095A64A /* TEMPAccountInfoModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 244E96B51E97335E0095A64A /* TEMPAccountInfoModel.m */; };
+		244E96D01E9745F60095A64A /* TEMPCameraManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 244E96C91E9745F60095A64A /* TEMPCameraManager.m */; };
+		244E96D11E9745F60095A64A /* TEMPCoderObjectManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 244E96CB1E9745F60095A64A /* TEMPCoderObjectManager.m */; };
+		244E96D21E9745F60095A64A /* TEMPLoginConfigurationManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 244E96CD1E9745F60095A64A /* TEMPLoginConfigurationManager.m */; };
+		244E96D31E9745F60095A64A /* TEMPPermitManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 244E96CF1E9745F60095A64A /* TEMPPermitManager.m */; };
+		244E96D61E974BD40095A64A /* NSString+Extension.m in Sources */ = {isa = PBXBuildFile; fileRef = 244E96D51E974BD40095A64A /* NSString+Extension.m */; };
 		247078CB1E84CD0700E12562 /* bgImage1.png in Resources */ = {isa = PBXBuildFile; fileRef = 247078CA1E84CD0700E12562 /* bgImage1.png */; };
 		247078CE1E84D38900E12562 /* UIButton+Extension.m in Sources */ = {isa = PBXBuildFile; fileRef = 247078CD1E84D38900E12562 /* UIButton+Extension.m */; };
 		247078D01E84DC9200E12562 /* Button_Field_Delete1.png in Resources */ = {isa = PBXBuildFile; fileRef = 247078CF1E84DC9200E12562 /* Button_Field_Delete1.png */; };
@@ -43,7 +51,6 @@
 		247F87361E84BECF00CE047E /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 247E44501E84BA6800BE66E4 /* LaunchScreen.storyboard */; };
 		249734991E8CE61C00AEA9ED /* UIAlertController+Extension.m in Sources */ = {isa = PBXBuildFile; fileRef = 249734981E8CE61C00AEA9ED /* UIAlertController+Extension.m */; };
 		249734A31E8D033700AEA9ED /* TEMPEditImageController.m in Sources */ = {isa = PBXBuildFile; fileRef = 249734A21E8D033700AEA9ED /* TEMPEditImageController.m */; };
-		24B8A6541E8BB6CD0097DAFB /* TEMPPermitManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 24B8A6531E8BB6CD0097DAFB /* TEMPPermitManager.m */; };
 		24B8A6571E8BC0230097DAFB /* UIAlertAction+Extension.m in Sources */ = {isa = PBXBuildFile; fileRef = 24B8A6561E8BC0230097DAFB /* UIAlertAction+Extension.m */; };
 		B87E4DE90384BFFFA3ECB0DA /* libPods-Thermometer.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 7FF29DAC4AC50CD84ACC7145 /* libPods-Thermometer.a */; };
 /* End PBXBuildFile section */
@@ -60,6 +67,11 @@
 		24115F011E8A3F4400FB9044 /* bgImage4.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = bgImage4.png; sourceTree = "<group>"; };
 		24115F071E8A4DC700FB9044 /* bgLoginImage.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = bgLoginImage.png; sourceTree = "<group>"; };
 		24115F091E8A54D500FB9044 /* Button_Add_Portrait.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Button_Add_Portrait.png; sourceTree = "<group>"; };
+		2423E62D1E95E70C00C2402E /* Login_Default_Portrait.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Login_Default_Portrait.png; sourceTree = "<group>"; };
+		2423E62F1E95EBA400C2402E /* TEMPRegisterController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TEMPRegisterController.h; sourceTree = "<group>"; };
+		2423E6301E95EBA400C2402E /* TEMPRegisterController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TEMPRegisterController.m; sourceTree = "<group>"; };
+		2423E6321E961AFE00C2402E /* UIImageView+Extension.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIImageView+Extension.h"; sourceTree = "<group>"; };
+		2423E6331E961AFE00C2402E /* UIImageView+Extension.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIImageView+Extension.m"; sourceTree = "<group>"; };
 		242E044B1E88C1DD00469527 /* TEMPTabBarController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TEMPTabBarController.h; sourceTree = "<group>"; };
 		242E044C1E88C1DD00469527 /* TEMPTabBarController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TEMPTabBarController.m; sourceTree = "<group>"; };
 		242E044F1E88EF5400469527 /* Tabbar_calendar.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Tabbar_calendar.png; sourceTree = "<group>"; };
@@ -68,8 +80,18 @@
 		242E04521E88EF5400469527 /* Tabbar_me.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Tabbar_me.png; sourceTree = "<group>"; };
 		242F76301E8E0B1D0006FA5B /* TEMPCameraController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TEMPCameraController.h; sourceTree = "<group>"; };
 		242F76311E8E0B1D0006FA5B /* TEMPCameraController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TEMPCameraController.m; sourceTree = "<group>"; };
-		242F76331E8E452A0006FA5B /* TEMPCameraManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TEMPCameraManager.h; sourceTree = "<group>"; };
-		242F76341E8E452A0006FA5B /* TEMPCameraManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TEMPCameraManager.m; sourceTree = "<group>"; };
+		244E96B41E97335E0095A64A /* TEMPAccountInfoModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TEMPAccountInfoModel.h; sourceTree = "<group>"; };
+		244E96B51E97335E0095A64A /* TEMPAccountInfoModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TEMPAccountInfoModel.m; sourceTree = "<group>"; };
+		244E96C81E9745F60095A64A /* TEMPCameraManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TEMPCameraManager.h; sourceTree = "<group>"; };
+		244E96C91E9745F60095A64A /* TEMPCameraManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TEMPCameraManager.m; sourceTree = "<group>"; };
+		244E96CA1E9745F60095A64A /* TEMPCoderObjectManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TEMPCoderObjectManager.h; sourceTree = "<group>"; };
+		244E96CB1E9745F60095A64A /* TEMPCoderObjectManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TEMPCoderObjectManager.m; sourceTree = "<group>"; };
+		244E96CC1E9745F60095A64A /* TEMPLoginConfigurationManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TEMPLoginConfigurationManager.h; sourceTree = "<group>"; };
+		244E96CD1E9745F60095A64A /* TEMPLoginConfigurationManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TEMPLoginConfigurationManager.m; sourceTree = "<group>"; };
+		244E96CE1E9745F60095A64A /* TEMPPermitManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TEMPPermitManager.h; sourceTree = "<group>"; };
+		244E96CF1E9745F60095A64A /* TEMPPermitManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TEMPPermitManager.m; sourceTree = "<group>"; };
+		244E96D41E974BD40095A64A /* NSString+Extension.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSString+Extension.h"; sourceTree = "<group>"; };
+		244E96D51E974BD40095A64A /* NSString+Extension.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSString+Extension.m"; sourceTree = "<group>"; };
 		247078CA1E84CD0700E12562 /* bgImage1.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = bgImage1.png; sourceTree = "<group>"; };
 		247078CC1E84D38900E12562 /* UIButton+Extension.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIButton+Extension.h"; sourceTree = "<group>"; };
 		247078CD1E84D38900E12562 /* UIButton+Extension.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIButton+Extension.m"; sourceTree = "<group>"; };
@@ -105,8 +127,6 @@
 		249734981E8CE61C00AEA9ED /* UIAlertController+Extension.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIAlertController+Extension.m"; sourceTree = "<group>"; };
 		249734A11E8D033700AEA9ED /* TEMPEditImageController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TEMPEditImageController.h; sourceTree = "<group>"; };
 		249734A21E8D033700AEA9ED /* TEMPEditImageController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TEMPEditImageController.m; sourceTree = "<group>"; };
-		24B8A6521E8BB6CD0097DAFB /* TEMPPermitManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TEMPPermitManager.h; sourceTree = "<group>"; };
-		24B8A6531E8BB6CD0097DAFB /* TEMPPermitManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TEMPPermitManager.m; sourceTree = "<group>"; };
 		24B8A6551E8BC0230097DAFB /* UIAlertAction+Extension.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIAlertAction+Extension.h"; sourceTree = "<group>"; };
 		24B8A6561E8BC0230097DAFB /* UIAlertAction+Extension.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIAlertAction+Extension.m"; sourceTree = "<group>"; };
 		7FF29DAC4AC50CD84ACC7145 /* libPods-Thermometer.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-Thermometer.a"; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -134,6 +154,14 @@
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
+		2423E62C1E95E70C00C2402E /* Login */ = {
+			isa = PBXGroup;
+			children = (
+				2423E62D1E95E70C00C2402E /* Login_Default_Portrait.png */,
+			);
+			path = Login;
+			sourceTree = "<group>";
+		};
 		242E044E1E88EF5400469527 /* Tabbar */ = {
 			isa = PBXGroup;
 			children = (
@@ -143,6 +171,21 @@
 				242E04521E88EF5400469527 /* Tabbar_me.png */,
 			);
 			path = Tabbar;
+			sourceTree = "<group>";
+		};
+		244E96C71E9745F60095A64A /* Manager */ = {
+			isa = PBXGroup;
+			children = (
+				244E96C81E9745F60095A64A /* TEMPCameraManager.h */,
+				244E96C91E9745F60095A64A /* TEMPCameraManager.m */,
+				244E96CA1E9745F60095A64A /* TEMPCoderObjectManager.h */,
+				244E96CB1E9745F60095A64A /* TEMPCoderObjectManager.m */,
+				244E96CC1E9745F60095A64A /* TEMPLoginConfigurationManager.h */,
+				244E96CD1E9745F60095A64A /* TEMPLoginConfigurationManager.m */,
+				244E96CE1E9745F60095A64A /* TEMPPermitManager.h */,
+				244E96CF1E9745F60095A64A /* TEMPPermitManager.m */,
+			);
+			path = Manager;
 			sourceTree = "<group>";
 		};
 		247E44361E84BA6700BE66E4 = {
@@ -175,7 +218,7 @@
 				247F871A1E84BD6700CE047E /* Data */,
 				247F870D1E84BD6700CE047E /* Category */,
 				247F87171E84BD6700CE047E /* CustomUIView */,
-				24B8A6511E8BB60F0097DAFB /* Tool */,
+				244E96C71E9745F60095A64A /* Manager */,
 				249734A01E8D02C000AEA9ED /* ToolController */,
 				247F87051E84BCAE00CE047E /* Supporting Files */,
 				247F871E1E84BD6700CE047E /* Resources */,
@@ -203,12 +246,16 @@
 				240EEAEA1E8F91C4001DBC57 /* UIView+Extension.m */,
 				247F870E1E84BD6700CE047E /* UIImage+Extension.h */,
 				247F870F1E84BD6700CE047E /* UIImage+Extension.m */,
+				2423E6321E961AFE00C2402E /* UIImageView+Extension.h */,
+				2423E6331E961AFE00C2402E /* UIImageView+Extension.m */,
 				247078CC1E84D38900E12562 /* UIButton+Extension.h */,
 				247078CD1E84D38900E12562 /* UIButton+Extension.m */,
 				24B8A6551E8BC0230097DAFB /* UIAlertAction+Extension.h */,
 				24B8A6561E8BC0230097DAFB /* UIAlertAction+Extension.m */,
 				249734971E8CE61C00AEA9ED /* UIAlertController+Extension.h */,
 				249734981E8CE61C00AEA9ED /* UIAlertController+Extension.m */,
+				244E96D41E974BD40095A64A /* NSString+Extension.h */,
+				244E96D51E974BD40095A64A /* NSString+Extension.m */,
 			);
 			path = Category;
 			sourceTree = "<group>";
@@ -222,6 +269,8 @@
 				24115EF11E8A0C2A00FB9044 /* TEMPBaseViewController.m */,
 				247F87131E84BD6700CE047E /* TEMPLoginController.h */,
 				247F87141E84BD6700CE047E /* TEMPLoginController.m */,
+				2423E62F1E95EBA400C2402E /* TEMPRegisterController.h */,
+				2423E6301E95EBA400C2402E /* TEMPRegisterController.m */,
 				247F87151E84BD6700CE047E /* TEMPMeasureController.h */,
 				247F87161E84BD6700CE047E /* TEMPMeasureController.m */,
 				247F87111E84BD6700CE047E /* TEMPChartController.h */,
@@ -251,6 +300,8 @@
 		247F871D1E84BD6700CE047E /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				244E96B41E97335E0095A64A /* TEMPAccountInfoModel.h */,
+				244E96B51E97335E0095A64A /* TEMPAccountInfoModel.m */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -262,6 +313,7 @@
 				247F87211E84BD6700CE047E /* Icons */,
 				247F87231E84BD6700CE047E /* LaunchImages */,
 				242E044E1E88EF5400469527 /* Tabbar */,
+				2423E62C1E95E70C00C2402E /* Login */,
 			);
 			path = Resources;
 			sourceTree = "<group>";
@@ -325,17 +377,6 @@
 				242F76311E8E0B1D0006FA5B /* TEMPCameraController.m */,
 			);
 			path = ToolController;
-			sourceTree = "<group>";
-		};
-		24B8A6511E8BB60F0097DAFB /* Tool */ = {
-			isa = PBXGroup;
-			children = (
-				24B8A6521E8BB6CD0097DAFB /* TEMPPermitManager.h */,
-				24B8A6531E8BB6CD0097DAFB /* TEMPPermitManager.m */,
-				242F76331E8E452A0006FA5B /* TEMPCameraManager.h */,
-				242F76341E8E452A0006FA5B /* TEMPCameraManager.m */,
-			);
-			path = Tool;
 			sourceTree = "<group>";
 		};
 		F368361D8A8CC7533817339A /* Pods */ = {
@@ -428,6 +469,7 @@
 				24115F081E8A4DC700FB9044 /* bgLoginImage.png in Resources */,
 				242E04551E88EF5400469527 /* Tabbar_home.png in Resources */,
 				24115F031E8A3F4400FB9044 /* bgImage3.png in Resources */,
+				2423E62E1E95E70C00C2402E /* Login_Default_Portrait.png in Resources */,
 				247F87331E84BD6700CE047E /* launchScreen.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -487,11 +529,17 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				242F76351E8E452A0006FA5B /* TEMPCameraManager.m in Sources */,
+				244E96D31E9745F60095A64A /* TEMPPermitManager.m in Sources */,
+				244E96D11E9745F60095A64A /* TEMPCoderObjectManager.m in Sources */,
+				2423E6341E961AFE00C2402E /* UIImageView+Extension.m in Sources */,
 				247F872B1E84BD6700CE047E /* TEMPChartController.m in Sources */,
+				2423E6311E95EBA400C2402E /* TEMPRegisterController.m in Sources */,
+				244E96D21E9745F60095A64A /* TEMPLoginConfigurationManager.m in Sources */,
 				247F872F1E84BD6700CE047E /* TEMPSqlData.m in Sources */,
 				249734991E8CE61C00AEA9ED /* UIAlertController+Extension.m in Sources */,
+				244E96B61E97335E0095A64A /* TEMPAccountInfoModel.m in Sources */,
 				247F872E1E84BD6700CE047E /* TEMPTextField.m in Sources */,
+				244E96D61E974BD40095A64A /* NSString+Extension.m in Sources */,
 				247F872C1E84BD6700CE047E /* TEMPLoginController.m in Sources */,
 				240EEAEB1E8F91C4001DBC57 /* UIView+Extension.m in Sources */,
 				247F870C1E84BD3600CE047E /* TEMPAppDelegate.m in Sources */,
@@ -499,11 +547,11 @@
 				249734A31E8D033700AEA9ED /* TEMPEditImageController.m in Sources */,
 				24B8A6571E8BC0230097DAFB /* UIAlertAction+Extension.m in Sources */,
 				247F87071E84BCC700CE047E /* main.m in Sources */,
-				24B8A6541E8BB6CD0097DAFB /* TEMPPermitManager.m in Sources */,
 				24115EF21E8A0C2A00FB9044 /* TEMPBaseViewController.m in Sources */,
 				247F872D1E84BD6700CE047E /* TEMPMeasureController.m in Sources */,
 				242E044D1E88C1DD00469527 /* TEMPTabBarController.m in Sources */,
 				247F872A1E84BD6700CE047E /* UIImage+Extension.m in Sources */,
+				244E96D01E9745F60095A64A /* TEMPCameraManager.m in Sources */,
 				247F87341E84BD6700CE047E /* TEMPChartView.m in Sources */,
 				242F76321E8E0B1D0006FA5B /* TEMPCameraController.m in Sources */,
 			);

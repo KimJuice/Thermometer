@@ -7,7 +7,7 @@
 //
 
 #import "TEMPAppDelegate.h"
-#import "TEMPLoginController.h"
+#import "TEMPRegisterController.h"
 
 @interface TEMPAppDelegate ()
 
@@ -24,10 +24,12 @@
     
     self.window = [[UIWindow alloc] initWithFrame:[UIScreen mainScreen].bounds];
     self.window.backgroundColor = [UIColor whiteColor];
-    TEMPLoginController *loginVC = [TEMPLoginController new];
+    TEMPRegisterController *loginVC = [TEMPRegisterController new];
     UINavigationController *nav = [[UINavigationController alloc] initWithRootViewController:loginVC];
     self.window.rootViewController = nav;
     [self.window makeKeyAndVisible];
+
+    [[TEMPSqlData sharedInstance] creatQueue];
 
     return YES;
 }

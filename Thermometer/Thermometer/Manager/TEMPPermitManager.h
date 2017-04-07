@@ -11,5 +11,6 @@
 @interface TEMPPermitManager : NSObject
 
 + (void)permitWithCamera:(UIViewController *)controller;
++ (void)permitWithPhotoLibrary:(UIViewController *)controller;
 
 @end

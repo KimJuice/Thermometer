@@ -31,4 +31,7 @@
 #define ICON_Tabbar_chart                       @"Tabbar_chart.png"
 #define ICON_Tabbar_me                          @"Tabbar_me.png"
 
+/** Login **/
+#define ICON_Default_Portrait                   @"Login_Default_Portrait.png"
+
 #endif /* TEMP_IconHeader_h */

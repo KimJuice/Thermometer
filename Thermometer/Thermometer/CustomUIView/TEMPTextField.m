@@ -62,6 +62,7 @@
         self.font = [UIFont systemFontOfSize:12];
         self.tintColor = subjectColor;
         self.textColor = subjectColor;
+        self.keyboardAppearance = UIKeyboardAppearanceAlert;
         CALayer *layer = [CALayer new];
         layer.borderWidth = kBorderWidth;
         layer.borderColor = [UIColor colorWithWhite:1.0 alpha:0.3].CGColor;

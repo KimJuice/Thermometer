@@ -14,7 +14,7 @@
 - (CGFloat)height;
 
 + (UIImage *)imageWithColor:(UIColor *)color;
-+ (UIImage *)imageWithSize:(CGSize)size sourceImage:(UIImage *)sourceImage;
++ (UIImage *)imageWithRect:(CGRect)rect sourceImage:(UIImage *)sourceImage;
 + (UIImage *)imageWithPortrait:(UIImage *)sourceImage borderWidth:(CGFloat)borderWidth borderColor:(CGColorRef)borderColor;
 
 @end

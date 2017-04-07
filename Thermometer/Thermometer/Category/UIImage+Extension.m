@@ -32,12 +32,11 @@
     return image;
 }
 
-+ (UIImage *)imageWithSize:(CGSize)size sourceImage:(UIImage *)sourceImage {
++ (UIImage *)imageWithRect:(CGRect)rect sourceImage:(UIImage *)sourceImage {
 
-    CGRect rect = CGRectMake(0, 0, size.width, size.height);
     UIGraphicsBeginImageContext(rect.size);
     CGContextRef context = UIGraphicsGetCurrentContext();
-    CGContextFillRect(context, rect);
+    CGContextStrokeRect(context, rect);
     [sourceImage drawInRect:rect];
     UIImage *image = UIGraphicsGetImageFromCurrentImageContext();
     UIGraphicsEndImageContext();
